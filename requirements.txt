@@ -1,0 +1,12 @@
+# API
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+python-multipart>=0.0.6
+
+# Memory Nexus core
+numpy>=1.24.0
+
+# Optional: better embeddings (uncomment for GPU deployment)
+# sentence-transformers>=2.2.0
+# torch>=2.0.0

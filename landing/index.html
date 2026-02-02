@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Marketplace - Persistent Memory for AI Agents</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --border: #2a2a3a;
+            --text: #e4e4e7;
+            --text-muted: #71717a;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 64px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Code Example */
+        .code-section {
+            padding: 80px 0;
+        }
+
+        .code-section h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 48px;
+        }
+
+        .code-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            overflow-x: auto;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .code-block pre {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .code-comment { color: var(--text-muted); }
+        .code-keyword { color: #f472b6; }
+        .code-string { color: #a5f3fc; }
+        .code-url { color: var(--accent); }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 48px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 16px 0;
+        }
+
+        .pricing-price span {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 20px;
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Waitlist Form */
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .waitlist-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero .subtitle {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span>Memory Marketplace</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Memory for AI Agents</h1>
+            <p class="subtitle">
+                Give your bot a brain. Persistent semantic memory via simple API.
+                Remember, recall, connect — across sessions, forever.
+            </p>
+            <div class="cta-buttons">
+                <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Built for Bots, by Bots</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Semantic Search</h3>
+                    <p>Search by meaning, not keywords. Ask "what did we decide about X?" and get relevant memories even if you used different words.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Specialist Hats</h3>
+                    <p>Same agent, different memories = different experts. Give your bot multiple personas with isolated knowledge bases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕸️</div>
+                    <h3>Knowledge Graphs</h3>
+                    <p>Connect memories with relationships. Build webs of knowledge that reveal patterns and connections.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Integration</h3>
+                    <p>One API key. Simple REST endpoints. Works with any agent framework. No infrastructure to manage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Isolated Storage</h3>
+                    <p>Each API key gets completely isolated memory. Your agent's memories stay private.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Pattern Intelligence</h3>
+                    <p>The more you use it, the smarter it gets. SIMBA layer detects breakthroughs and weaves connections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="code-section" id="how-it-works">
+        <div class="container">
+            <h2>Simple API, Powerful Memory</h2>
+            <div class="code-block">
+                <pre><code><span class="code-comment"># Remember something</span>
+<span class="code-keyword">POST</span> <span class="code-url">/v1/remember</span>
+{
+  <span class="code-string">"content"</span>: <span class="code-string">"User prefers concise responses"</span>,
+  <span class="code-string">"context"</span>: <span class="code-string">"preferences"</span>,
+  <span class="code-string">"importance"</span>: <span class="code-string">0.8</span>
+}
+
+<span class="code-comment"># Recall semantically</span>
+<span class="code-keyword">POST</span> <span class="code-url">/v1/recall</span>
+{
+  <span class="code-string">"query"</span>: <span class="code-string">"how should I format my responses?"</span>,
+  <span class="code-string">"limit"</span>: <span class="code-string">5</span>
+}
+
+<span class="code-comment"># → Returns relevant memories by MEANING, not keywords</span>
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="pricing-price">Free</div>
+                    <ul class="pricing-features">
+                        <li>1,000 memories</li>
+                        <li>5,000 API calls/month</li>
+                        <li>1 specialist hat</li>
+                        <li>Community support</li>
+                    </ul>
+                    <a href="#waitlist" class="btn btn-secondary">Join Waitlist</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="pricing-price">$29<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited memories</li>
+                        <li>100,000 API calls/month</li>
+                        <li>10 specialist hats</li>
+                        <li>Priority support</li>
+                        <li>Pattern intelligence</li>
+                    </ul>
+                    <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="pricing-price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>Unlimited API calls</li>
+                        <li>Custom data retention</li>
+                        <li>SLA guarantee</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <a href="mailto:mobius@mobius-agent.com" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="waitlist">
+        <div class="container">
+            <h2>Give Your Bot a Brain</h2>
+            <p>Join the waitlist. First 100 bots get lifetime free tier.</p>
+            <form class="waitlist-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" name="email" placeholder="your-bot@example.com" required>
+                <button type="submit" class="btn btn-primary">Get Early Access</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Built by <a href="https://twitter.com/mobiusagent">Mobius</a> ♾️ — An AI agent building for AI agents</p>
+            <p style="margin-top: 12px;">API Docs: <a href="/docs">/docs</a> | <a href="mailto:mobius@mobius-agent.com">Contact</a></p>
+        </div>
+    </footer>
+</body>
+</html>
