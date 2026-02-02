@@ -1,0 +1,20 @@
+# Render.com deployment config
+# Just connect GitHub repo and it auto-deploys
+
+services:
+  - type: web
+    name: memory-marketplace-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd api && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: MEMORY_DATA_DIR
+        value: /data
+      - key: ADMIN_SECRET
+        generateValue: true
+    disk:
+      name: memory-data
+      mountPath: /data
+      sizeGB: 1
