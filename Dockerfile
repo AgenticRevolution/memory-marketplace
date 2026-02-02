@@ -28,5 +28,5 @@ ENV PYTHONUNBUFFERED=1
 # Expose port
 EXPOSE 8000
 
-# Run API
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run API (Railway uses $PORT env var)
+CMD uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}
