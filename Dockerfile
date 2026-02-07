@@ -18,6 +18,12 @@ COPY memory-nexus/ /app/memory-nexus/
 # Copy API code
 COPY api/ /app/api/
 
+# Copy hats system
+COPY hats/ /app/hats/
+
+# Copy built hat data
+COPY build/ /app/build/
+
 # Create data directory
 RUN mkdir -p /data
 
