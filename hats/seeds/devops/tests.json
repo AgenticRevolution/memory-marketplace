@@ -1,0 +1,124 @@
+{
+  "queries": [
+    {
+      "query": "My Railway deploy failed with exit code 1",
+      "expected_context": "debugging",
+      "expected_keywords": ["exit code", "startup"],
+      "min_score": 0.3
+    },
+    {
+      "query": "How do I write a Dockerfile for a Python FastAPI app?",
+      "expected_context": "docker",
+      "expected_keywords": ["python", "slim"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Setting up GitHub Actions CI pipeline",
+      "expected_context": "cicd",
+      "expected_keywords": ["workflow", "github"],
+      "min_score": 0.3
+    },
+    {
+      "query": "502 bad gateway error after deploying",
+      "expected_context": "debugging",
+      "expected_keywords": ["502", "reverse proxy"],
+      "min_score": 0.3
+    },
+    {
+      "query": "How to keep secrets out of git",
+      "expected_context": "security",
+      "expected_keywords": ["secrets", "env"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Docker container getting killed with exit code 137",
+      "expected_context": "debugging",
+      "expected_keywords": ["137", "memory"],
+      "min_score": 0.3
+    },
+    {
+      "query": "How to set environment variables on Railway",
+      "expected_context": "railway",
+      "expected_keywords": ["environment", "railway"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Should I use microservices or monolith",
+      "expected_context": "architecture",
+      "expected_keywords": ["monolith", "microservices"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Prevent SQL injection attacks",
+      "expected_context": "security",
+      "expected_keywords": ["SQL", "parameterized"],
+      "min_score": 0.3
+    },
+    {
+      "query": "CORS error in production but works locally",
+      "expected_context": "debugging",
+      "expected_keywords": ["CORS", "cross-origin"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Cache npm dependencies in CI",
+      "expected_context": "cicd",
+      "expected_keywords": ["cache", "npm"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Railway app keeps sleeping",
+      "expected_context": "railway",
+      "expected_keywords": ["sleep", "cold start"],
+      "min_score": 0.3
+    },
+    {
+      "query": "How to do health checks properly",
+      "expected_context": "architecture",
+      "expected_keywords": ["health", "dependencies"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Rate limiting API endpoints",
+      "expected_context": "security",
+      "expected_keywords": ["rate limit"],
+      "min_score": 0.3
+    },
+    {
+      "query": "What port does Railway use",
+      "expected_context": "railway",
+      "expected_keywords": ["PORT", "environment"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Docker image too large",
+      "expected_context": "docker",
+      "expected_keywords": ["multi-stage", "size"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Webhook events not arriving",
+      "expected_context": "debugging",
+      "expected_keywords": ["webhook", "publicly accessible"],
+      "min_score": 0.3
+    },
+    {
+      "query": "How to verify Stripe webhook signatures",
+      "expected_context": "security",
+      "expected_keywords": ["stripe", "signature"],
+      "min_score": 0.3
+    },
+    {
+      "query": "Choosing between PostgreSQL and MongoDB",
+      "expected_context": "architecture",
+      "expected_keywords": ["PostgreSQL", "MongoDB"],
+      "min_score": 0.3
+    },
+    {
+      "query": "GitHub Actions secrets configuration",
+      "expected_context": "cicd",
+      "expected_keywords": ["secrets", "Actions"],
+      "min_score": 0.3
+    }
+  ]
+}

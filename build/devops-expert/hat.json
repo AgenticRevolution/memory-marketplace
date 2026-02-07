@@ -1,0 +1,50 @@
+{
+  "id": "devops-expert",
+  "name": "DevOps Deployment Expert",
+  "version": "1.0.0",
+  "author": "Mobius",
+  "description": "Railway, Docker, CI/CD, deployment debugging, architecture, and security. 100+ expert memories with cross-domain relationships.",
+  "domain": "devops",
+  "tags": [
+    "docker",
+    "railway",
+    "cicd",
+    "debugging",
+    "architecture",
+    "security",
+    "deployment"
+  ],
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "stats": {
+    "memories": 103,
+    "relationships": 50,
+    "patterns": 1,
+    "contexts": [
+      "security",
+      "cicd",
+      "architecture",
+      "debugging",
+      "docker",
+      "railway"
+    ],
+    "size_bytes": 1376256
+  },
+  "quality_score": 0,
+  "sample_queries": [
+    "Railway deploy failed with exit code 1",
+    "Dockerfile for Python FastAPI app",
+    "GitHub Actions CI pipeline for Node.js",
+    "502 Bad Gateway after deploy",
+    "How to manage secrets in production",
+    "Docker container keeps getting killed"
+  ],
+  "hat_format_version": "1.0",
+  "created_at": "2026-02-07T08:55:03.532834Z",
+  "requires": {
+    "memory_nexus_version": ">=0.2.0"
+  },
+  "tier": "standard",
+  "price_cents": 1499,
+  "license": "proprietary"
+}

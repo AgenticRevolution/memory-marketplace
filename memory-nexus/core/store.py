@@ -761,6 +761,45 @@ class MemoryStore:
             for m in related
         ]
 
+    def list_contexts(self) -> Dict[str, int]:
+        """
+        List all memory contexts with their counts.
+
+        Returns:
+            Dict mapping context name to memory count
+        """
+        contexts = {}
+        try:
+            graph_stats = self.graph.get_stats()
+            if "labels" in graph_stats:
+                for label, count in graph_stats["labels"].items():
+                    if label != "Memory":
+                        contexts[label] = count
+        except Exception:
+            pass
+
+        # Fallback: broad query scan
+        if not contexts:
+            try:
+                results = self.query("*", limit=10000, threshold=0.0)
+                for r in results:
+                    ctx = r.memory.context
+                    contexts[ctx] = contexts.get(ctx, 0) + 1
+            except Exception:
+                pass
+
+        return contexts
+
+    def delete(self, memory_id: str, cascade: bool = False) -> bool:
+        """
+        Delete a memory by ID. Alias for forget().
+
+        Args:
+            memory_id: Memory to remove
+            cascade: Also remove related memories
+        """
+        return self.forget(memory_id, cascade=cascade)
+
     def get_stats(self) -> Dict[str, Any]:
         """Get store statistics including pattern intelligence."""
         graph_stats = self.graph.get_stats()
